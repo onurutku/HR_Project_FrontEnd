@@ -1,57 +1,53 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Steps } from 'primeng/steps';
+import { Subscription } from 'rxjs';
+import { HelperService } from '../helper.service';
 @Component({
   selector: 'app-steps',
   templateUrl: './steps.component.html',
   styleUrls: ['./steps.component.scss'],
 })
-export class StepsComponent implements OnInit {
+export class StepsComponent implements OnInit, OnDestroy {
   @ViewChild('stepper') stepper: Steps;
   items: MenuItem[];
   activeIndex: number = 0;
   buttonName: string = 'İleri';
-  constructor() {}
+  indexSubscription: Subscription;
+  genderSubscription: Subscription;
+  constructor(private helper: HelperService) {}
 
   ngOnInit(): void {
     this.items = [
-      {
-        label: 'Kişisel Bilgiler',
-        command: (e) => {
-          console.log('hello');
-          this.activeIndex = 0;
-        },
-      },
+      { label: 'Kişisel Bilgiler', routerLink: 'personal-info' },
       {
         label: 'Askerlik Bilgileri',
-        command: (e) => {
-          console.log('merhaba');
-          this.activeIndex = 1;
-        },
+        routerLink: 'military-info',
       },
-      { label: 'Aile Bilgileri' },
-      { label: 'Acil Durum Bilgileri' },
-      { label: 'Banka Bilgileri' },
-      { label: 'Yabancı Dil Bilgisi' },
-      { label: 'Eğitim Bilgileri' },
-      { label: 'Önceki İş Tecrübeleri' },
-      { label: 'Özet' },
+      { label: 'Aile Bilgileri', routerLink: 'family-info' },
+      { label: 'Acil Durum Bilgileri', routerLink: 'emergency-info' },
+      { label: 'Banka Bilgileri', routerLink: 'bank-info' },
+      { label: 'Yabancı Dil Bilgisi', routerLink: 'language-info' },
+      { label: 'Eğitim Bilgileri', routerLink: 'education-info' },
+      { label: 'Önceki İş Tecrübeleri', routerLink: 'experience-info' },
+      { label: 'Özet', routerLink: 'summary' },
     ];
+    this.helper.nextIndexCarrier.subscribe((index) => {
+      this.activeIndex = index;
+    });
+    this.helper.genderCarrier.subscribe((gender) => {
+      if (gender === 'kadin') {
+        this.items[1].disabled = true;
+      } else {
+        this.items[1].disabled = false;
+      }
+    });
   }
-  stepDown() {
-    // if (this.activeIndex != 0) this.activeIndex -= 1;
-    // if (this.activeIndex != 8) this.buttonName = 'İleri';
-    this.stepper.activeIndexChange.emit(this.activeIndex--);
+  ngOnDestroy(): void {
+    if (this.indexSubscription) this.indexSubscription.unsubscribe();
+    if (this.genderSubscription) this.genderSubscription.unsubscribe();
   }
-  stepUp() {
-    this.stepper.activeIndexChange.emit(this.activeIndex++);
-
-    // if (this.activeIndex == 7) this.buttonName = 'Kaydet';
-
-    // if (this.activeIndex != 8) this.activeIndex += 1;
-  }
-  indexChange(event: Event) {
-    console.log(event);
-    console.log('index');
+  indexChange(event: number) {
+    this.activeIndex = event;
   }
 }
