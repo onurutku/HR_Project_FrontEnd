@@ -1,0 +1,19 @@
+<div class="container">
+  <p-steps
+    [model]="items"
+    [activeIndex]="activeIndex"
+    (activeIndexChange)="indexChange($event)"
+    [readonly]="false"
+    #stepper
+  ></p-steps>
+  <app-form [activeIndex]="activeIndex"></app-form>
+  <div class="flex justify-content-between flex-wrap mt-5">
+    <button pButton type="button" label="Geri" (click)="stepDown()"></button>
+    <button
+      pButton
+      type="button"
+      [label]="buttonName"
+      (click)="stepUp()"
+    ></button>
+  </div>
+</div>

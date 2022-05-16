@@ -1,0 +1,40 @@
+<form>
+  <div class="mt-5 grid" *ngIf="activeIndex == 0">
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" pInputText placeholder="Adı" />
+      </div>
+    </div>
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" pInputText placeholder="Soyadı" />
+      </div>
+    </div>
+    <div class="col-12 md:col-4 flex align-items-center">
+      <div class="p-inputgroup flex justify-content-center">
+        <p-radioButton
+          class="mr-2"
+          name="erkek"
+          value="erkek"
+          label="Erkek"
+          [(ngModel)]="selectedValue"
+        ></p-radioButton>
+        <p-radioButton
+          class="mr-2"
+          name="kadin"
+          value="kadin"
+          label="Kadın"
+          [(ngModel)]="selectedValue"
+        ></p-radioButton>
+        <p-radioButton
+          name="none"
+          value="none"
+          label="Belirtilmemiş"
+          [(ngModel)]="selectedValue"
+        ></p-radioButton>
+      </div>
+    </div>
+  </div>
+</form>
