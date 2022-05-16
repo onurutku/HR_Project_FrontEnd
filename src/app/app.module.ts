@@ -21,9 +21,23 @@ import { LanguageInfoComponent } from './language-info/language-info.component';
 import { EducationInfoComponent } from './education-info/education-info.component';
 import { ExperienceInfoComponent } from './experience-info/experience-info.component';
 import { SummaryComponent } from './summary/summary.component';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, StepsComponent, PersonalInfoComponent, MilitaryInfoComponent, FamilyInfoComponent, EmergencyInfoComponent, BankInfoComponent, LanguageInfoComponent, EducationInfoComponent, ExperienceInfoComponent, SummaryComponent],
+  declarations: [
+    AppComponent,
+    StepsComponent,
+    PersonalInfoComponent,
+    MilitaryInfoComponent,
+    FamilyInfoComponent,
+    EmergencyInfoComponent,
+    BankInfoComponent,
+    LanguageInfoComponent,
+    EducationInfoComponent,
+    ExperienceInfoComponent,
+    SummaryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,6 +49,8 @@ import { SummaryComponent } from './summary/summary.component';
     RadioButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    CalendarModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

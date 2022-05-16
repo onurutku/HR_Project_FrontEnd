@@ -18,10 +18,14 @@ export class PersonalInfoComponent implements OnInit {
   ngOnInit(): void {
     this.personalInfo = new FormGroup({
       gender: new FormControl(null, Validators.required),
+      firstname: new FormControl(null, Validators.required),
+      lastname: new FormControl(null, Validators.required),
+      date: new FormControl(null, Validators.required),
     });
   }
   stepUp() {
     this.gender = this.personalInfo.get('gender').value;
+    console.log(this.gender);
     if (this.gender === 'kadin') {
       this.router.navigate(['/family-info']);
       this.helper.nextIndexCarrier.next(2);

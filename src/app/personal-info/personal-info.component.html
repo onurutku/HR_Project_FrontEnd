@@ -4,13 +4,23 @@
       <div class="col-12 md:col-4">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-          <input type="text" pInputText placeholder="Adı" />
+          <input
+            type="text"
+            pInputText
+            placeholder="Adı"
+            [formControlName]="'firstname'"
+          />
         </div>
       </div>
       <div class="col-12 md:col-4">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-          <input type="text" pInputText placeholder="Soyadı" />
+          <input
+            type="text"
+            pInputText
+            placeholder="Soyadı"
+            [formControlName]="'lastname'"
+          />
         </div>
       </div>
       <div class="col-12 md:col-4 flex align-items-center">
@@ -30,11 +40,21 @@
             [formControlName]="'gender'"
           ></p-radioButton>
           <p-radioButton
-            name="gender"
             value="none"
             label="Belirtilmemiş"
             [formControlName]="'gender'"
           ></p-radioButton>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 grid">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+          <p-calendar
+            placeholder="Doğum Tarihi"
+            [formControlName]="'date'"
+          ></p-calendar>
         </div>
       </div>
     </div>

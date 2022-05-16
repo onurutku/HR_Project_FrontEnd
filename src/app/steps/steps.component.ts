@@ -9,8 +9,7 @@ import { HelperService } from '../helper.service';
   styleUrls: ['./steps.component.scss'],
 })
 export class StepsComponent implements OnInit, OnDestroy {
-  @ViewChild('stepper') stepper: Steps;
-  items: MenuItem[];
+  public items: MenuItem[];
   activeIndex: number = 0;
   buttonName: string = 'İleri';
   indexSubscription: Subscription;
@@ -36,10 +35,13 @@ export class StepsComponent implements OnInit, OnDestroy {
       this.activeIndex = index;
     });
     this.helper.genderCarrier.subscribe((gender) => {
+      console.log('geldi');
+
       if (gender === 'kadin') {
         this.items[1].disabled = true;
       } else {
         this.items[1].disabled = false;
+        console.log(this.items[1].disabled);
       }
     });
   }
