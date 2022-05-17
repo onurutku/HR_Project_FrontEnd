@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Steps } from 'primeng/steps';
 import { Subscription } from 'rxjs';
 import { HelperService } from '../helper.service';
 @Component({
@@ -10,13 +9,13 @@ import { HelperService } from '../helper.service';
 })
 export class StepsComponent implements OnInit, OnDestroy {
   public items: MenuItem[];
-  activeIndex: number = 0;
-  buttonName: string = 'İleri';
+  activeIndex: number = 0; // set active index
   indexSubscription: Subscription;
   genderSubscription: Subscription;
   constructor(private helper: HelperService) {}
 
   ngOnInit(): void {
+    //primeng steps menu item
     this.items = [
       { label: 'Kişisel Bilgiler', routerLink: 'personal-info' },
       {
@@ -31,24 +30,25 @@ export class StepsComponent implements OnInit, OnDestroy {
       { label: 'Önceki İş Tecrübeleri', routerLink: 'experience-info' },
       { label: 'Özet', routerLink: 'summary' },
     ];
+    //subscription for get current index
     this.helper.nextIndexCarrier.subscribe((index) => {
       this.activeIndex = index;
     });
+    //subscription for get gender to skip military step or not
     this.helper.genderCarrier.subscribe((gender) => {
-      console.log('geldi');
-
       if (gender === 'kadin') {
         this.items[1].disabled = true;
       } else {
         this.items[1].disabled = false;
-        console.log(this.items[1].disabled);
       }
     });
   }
+  //subscription cancellelation on end of the components lifecycle
   ngOnDestroy(): void {
     if (this.indexSubscription) this.indexSubscription.unsubscribe();
     if (this.genderSubscription) this.genderSubscription.unsubscribe();
   }
+  //click manually on the steps menu auto set current index
   indexChange(event: number) {
     this.activeIndex = event;
   }

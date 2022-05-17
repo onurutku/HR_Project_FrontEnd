@@ -23,6 +23,8 @@ import { ExperienceInfoComponent } from './experience-info/experience-info.compo
 import { SummaryComponent } from './summary/summary.component';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropdownModule } from 'primeng/dropdown';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     CalendarModule,
     BrowserAnimationsModule,
+    DropdownModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

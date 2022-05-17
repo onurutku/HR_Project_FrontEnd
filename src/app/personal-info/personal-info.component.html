@@ -47,13 +47,250 @@
         </div>
       </div>
     </div>
-    <div class="mt-5 grid">
+    <div class="mt-2 grid">
       <div class="col-12 md:col-4">
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
           <p-calendar
             placeholder="Doğum Tarihi"
-            [formControlName]="'date'"
+            [formControlName]="'dateofbirth'"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-flag"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Milliyeti (Örn. Türkiye)"
+            [formControlName]="'nationality'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-circle"></i></span>
+          <input
+            type="number"
+            pInputText
+            placeholder="TC Kimlik No"
+            [formControlName]="'identity'"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 grid">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"
+            ><i class="pi pi-map-marker"></i
+          ></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Doğum Yeri(Şehir)"
+            [formControlName]="'city'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"
+            ><i class="pi pi-map-marker"></i
+          ></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Doğum Yeri(Ülke)"
+            [formControlName]="'country'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"
+            ><i class="pi pi-user-plus"></i
+          ></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Medeni Hali"
+            [formControlName]="'status'"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 grid">
+      <div class="col-12 md:col-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-users"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Çocuk Sayısı"
+            [formControlName]="'kids'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-undo"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Önceki Soyadınız"
+            [formControlName]="'singlelastname'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+          <p-calendar
+            placeholder="Evlilik Tarihi"
+            [formControlName]="'dateofmarriage'"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="col-12 md:col-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-slack"></i></span>
+          <p-dropdown
+            [options]="bloodTypes"
+            placeholder="Kan Grubunuz"
+            optionLabel="name"
+            optionValue="name"
+            [showClear]="true"
+            [formControlName]="'bloodtype'"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 grid">
+      <div class="col-12 md:col-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Adres Bilgisi"
+            [formControlName]="'address'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-2">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="İlçe"
+            [formControlName]="'addressdistrict'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-2">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="İl"
+            [formControlName]="'addresscity'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-2">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+          <input
+            type="text"
+            pInputText
+            placeholder="Ülke"
+            [formControlName]="'addresscountry'"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 grid">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
+          <input
+            type="email"
+            pInputText
+            placeholder="Kişisel Mail Adresi"
+            [formControlName]="'email'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+          <input
+            type="number"
+            pInputText
+            placeholder="Ev Telefonu"
+            [formControlName]="'homephone'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+          <input
+            type="number"
+            pInputText
+            placeholder="Cep Telefonu"
+            [formControlName]="'mobilephone'"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 grid">
+      <div class="col-12 md:col-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input
+            type="email"
+            pInputText
+            placeholder="Tercih Edilen Adı"
+            [formControlName]="'preferedfirstname'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input
+            type="number"
+            pInputText
+            placeholder="Tercih Edilen Soyadı"
+            [formControlName]="'preferedlastname'"
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
+          <input
+            type="email"
+            pInputText
+            placeholder="Orion Email (adi.soyadi)"
+            [formControlName]="'orionemailaddress'"
+          />
+          <span class="p-inputgroup-addon">@orioninc.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 grid">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+          <p-calendar
+            placeholder="Sgk Başlangıç Tarihi"
+            [formControlName]="'sgkstarted'"
           ></p-calendar>
         </div>
       </div>
