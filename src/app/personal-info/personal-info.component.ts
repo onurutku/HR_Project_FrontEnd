@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 import { HelperService } from '../helper.service';
 
 @Component({
@@ -13,7 +14,11 @@ export class PersonalInfoComponent implements OnInit {
   selectedValue: string;
   gender: string;
   bloodTypes: any[];
-  constructor(private router: Router, private helper: HelperService) {}
+  constructor(
+    private router: Router,
+    private helper: HelperService,
+    private data: DataService
+  ) {}
 
   ngOnInit(): void {
     this.bloodTypes = [
@@ -90,7 +95,7 @@ export class PersonalInfoComponent implements OnInit {
         this.personalInfo.get('orionemailaddress').value + '@orioninc.com',
       sgkstarted: this.personalInfo.get('sgkstarted').value,
     };
-
+    this.data.postPersonalInfo(personalInfo);
     this.gender = this.personalInfo.get('gender').value;
     //if else for check if user is woman or man. we'll skip next step with that info or not!
     if (this.gender === 'kadin') {

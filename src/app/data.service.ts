@@ -7,6 +7,10 @@ import { Injectable } from '@angular/core';
 export class DataService {
   constructor(private http: HttpClient) {}
   postPersonalInfo(personalInfo) {
-    return this.http.post('', personalInfo);
+    this.http
+      .post('http://localhost:3000/users', personalInfo)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }
